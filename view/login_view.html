@@ -1,0 +1,42 @@
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>BeeJee testTask</title>
+    <script src="\..\beejee\node_modules\jquery\dist\jquery.min.js"></script>
+    <link rel="stylesheet" href="\..\beejee\node_modules\bootstrap\dist\css\bootstrap.min.css">
+    <script src="\..\beejee\node_modules\bootstrap\dist\js\bootstrap.min.js"></script>
+    <script src="\..\beejee\node_modules\jquery.fancytable\dist\fancyTable.min.js"></script>
+    <script>
+        $(document).on('blur','.mail', function(){
+            var mail=$(this).html();
+            if( !validateEmail(mail) || mail=="") { alert('некорректный адрес почты!'); }
+            function validateEmail($email) {
+                var emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
+                return emailReg.test( $email );
+            }
+        });
+        $(document).ready(function() {
+            $('#add_task').click(function () {
+                $('#sampleTableA tbody').append('<tr class="child"><td contenteditable></td><td class="mail" contenteditable><td contenteditable></td></tr>');
+            });
+        });
+    </script>
+</head>
+    <body>
+    <div class="container col-lg-6">
+    <form method="post" action="\..\beejee\components\login.php" class="form" id="formLogin" >
+        <label>Логин:</label>
+        <input name="username" id="username" class="col-xs-12"
+               type="text" pattern="[a-zA-Z0-9]{3,25}" maxlength="40" placeholder="Пользователь" required>
+        <label>Пароль:</label>
+        <input name="password" id="password" class="col-xs-12" type="password" maxlength="40"
+               placeholder="Пароль" required>
+        <input type="submit" class="btn col-xs-12 btn-primary"/>
+        <input type="button" value="добавить задачу" id="add_task">
+    </form>
+    </div>
+    </body>
+</html>

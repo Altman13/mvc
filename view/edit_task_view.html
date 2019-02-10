@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script>
+    function addCheckbox(name)
+    {
+        var container = $('#cblist');
+        var inputs = container.find('input');
+        $('<input />', {type: 'checkbox', class: 'cb', value: name}).prependTo("tbody>tr>td:nth-child(1)");
+    }
+
+</script>
+    <body>
+    <div class="container col-lg-6">
+    <input type="button" value="редактировать" id="edit_task">
+    <input type="button" value="послать данные" id="post_task">
+    </div>
+    </body>
+</html>
